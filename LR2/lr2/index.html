@@ -118,13 +118,47 @@
 <li>Администратор должен иметь возможность указать время заезда и результат средствами Django-adminю</li>
 <li>В клиентской части должна формироваться таблица всех заездов и результатов конкретной гонки.</li>
 </ul>
-<h1 id="_2">Запуск</h1>
-<h2 id="_3">Первый запуск</h2>
+<h1 id="_2">Выполненное задание</h1>
+<p>1 Список гонок (эндпоинт доступен всем пользователям)</p>
+<pre><code>/races/
+</code></pre>
+<p>Вид от лица супер-юзера:
+<img alt="image" src="../images/1.png" />
+Вид от лица неавторизированного пользователя
+<img alt="image" src="../images/5.png" />
+Вид от лица обычного пользователя:</p>
+<p>2 Сводная таблица гонок с фильтрацией, пагинацией и поиском (эндпоинт доступен только супер-юзеру).</p>
+<pre><code>/races_pivot/
+</code></pre>
+<p><img alt="image" src="../images/2.png" /></p>
+<p>3 По эндпоинту отображаются записи на гонки. Доступ к нему имеют только авторизованные пользователи, а право на регистрацию имеют только те, кто дополнительно зарегистрирован как гонщик.</p>
+<pre><code>/profile/
+</code></pre>
+<p>Если есть регистрации:
+<img alt="image" src="../images/3.png" /></p>
+<p>Если регистраций нет:
+<img alt="image" src="../images/8.png" /></p>
+<p>Если пользователь не зарегистрирован как гонщик:
+<img alt="image" src="../images/9.png" /></p>
+<p>4 По эндпоинту отображаются комментарии к гонке, а также есть возможность оставить свой. Доступ только у авторизованных пользователей.</p>
+<pre><code>/races/comments/{race_id}
+</code></pre>
+<p><img alt="image" src="../images/4.png" /></p>
+<p>5 Эндпоинт для входа</p>
+<pre><code>/login/
+</code></pre>
+<p><img alt="image" src="../images/6.png" /></p>
+<p>6 Эндпоинт для регистрации</p>
+<pre><code>/registration/
+</code></pre>
+<p><img alt="image" src="../images/7.png" /></p>
+<h1 id="_3">Запуск</h1>
+<h2 id="_4">Первый запуск</h2>
 <pre><code class="language-zsh">pip install -r requirements.txt
 docker run --name pg-container -e POSTGRES_PASSWORD=notsecred -d -p 5432:5432 postgres
 python manage.py runserver localhost:8000
 </code></pre>
-<h2 id="_4">Дальнейшие запуски</h2>
+<h2 id="_5">Дальнейшие запуски</h2>
 <pre><code class="language-zsh">docker start postgres-container
 python manage.py runserver localhost:8000
 </code></pre>
